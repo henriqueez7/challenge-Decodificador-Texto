@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #F3F5FC;
+}
+
+.cabecario{
+    padding: 40px 0 0 40px;
+}
+
+.codificador{
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0 0 140px;
+}
+
+.area{
+   display: flex;
+   flex-direction: column;
+}
+
+.titulo{
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 3rem;
+    color: #0A3871;
+    font-family: "Inter", sans-serif;
+}
+
+.caixa-texto{
+    width: 650px;
+    height: 500px;
+    border: none;
+    padding: 10px;
+    box-sizing: border-box;
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgba(19, 19, 19, 0.1);
+}
+
+.mensagem{
+    padding: 1rem 0;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.mensagem p{
+    color: #495057;
+    font-family: "Inter", sans-serif;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-criptografar{
+    background-color: #0A3871;
+    padding: 24px;
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    font-family: "Inter", sans-serif;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-descriptografar{
+    background-color: #D8DFE8;
+    padding: 24px;
+    width: 328px;
+    height: 67px;
+    border-radius: 24px;
+    font-family: "Inter", sans-serif;
+    color: #0A3871;
+    border: none;
+    cursor: pointer;
+}
+
+.texto{
+    width: 22rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 32px;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    
+}
+
+.imagem-principal{
+    width: 336px;
+    height: 304px;
+}
+
+.text-aviso{
+    width: 336px;
+    height: 122px;
+    font-family: "Inter", sans-serif;
+}
+
+
+.text-aviso h3{
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700px;
+    line-height: 28.8px;
+    color: #343A40;
+    text-align: center;
+}
+
+.text-aviso p{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+    color: #495057;
+    
+}
+
+
+
