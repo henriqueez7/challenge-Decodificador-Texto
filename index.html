@@ -7,42 +7,45 @@
     <title>Decodificador de Texto</title>
 </head>
 <body>
-    <header class="cabecario">
-        <div class="logo">
-            <img src="assets/img/Logo.png" alt="">
-        </div>
-    </header>
-
-    <main class="codificador">
+    <main class="codificador">   
         <section class="area">
-            <div class="input-area">
-                <h1 class="titulo">Digite seu Texto</h1>
-                <textarea class="caixa-texto" ="input-text"></textarea>
-            </div>
+            
+            <header class="cabecario">
+                <img class="logo" src="assets/img/Logo.png" alt="">
+                
+            </header>
 
-            <div class="mensagem">
-                <img src="assets/img/exclamacao.jpg" alt="">
-                <p>Apenas letras minúsculas e sem acento.</p>
-            </div>
+            <div class="content-area">      
+                <div class="input-area">
+                    <textarea class="caixa-texto" placeholder="Digite seu Texto"></textarea>
+                </div>
 
-            <div class="button">
-                <button class="btn-criptografar">Criptografar</button>
-                <button class="btn-descriptografar">Descriptografar</button>
-            </div>
-        </section>
+                <div class="content-bottao">
+                    <div class="mensagem">
+                        <img src="assets/img/exclamacao.jpg" alt="">
+                        <small>Apenas letras minúsculas e sem acento.</small>
+                    </div>
 
-        <section class="texto">
+                    <div class="button">
+                        <button class="btn-criptografar">Criptografar</button>
+                        <button class="btn-descriptografar">Descriptografar</button>
+                    </div>
+                </div>
+            </div>    
+        </section>  
+
+        <section class="caixa-secundaria">
             <div class="imagem-principal">
                 <img src="assets/img/imagem-principal.jpg" alt="">
             </div>
 
             <div class="text-aviso">
                 <h3>Nenhuma mensagem encontrada</h3>
-                <p>Digite um texto que você deseja criptografar ou descriptografar.</p>
+                <p>Digite um texto que você deseja <br> criptografar ou descriptografar.</p>
             </div>
         </section>
     </main>
 
-    <footer>Desenvolvido por: Pedro Henrique</footer>
+    <footer class="rodape"><p>Desenvolvido por: Pedro Henrique</p></footer>
 </body>
 </html>
