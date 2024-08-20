@@ -4,60 +4,94 @@ const btnDescriptografar = document.querySelector('.btn-descriptografar');
 const textAviso = document.querySelector('.text-aviso');
 const imagemPrincipal = document.querySelector('.imagem-principal');
 const btnCopiar = document.querySelector('.btn-copiar');
+const card = document.querySelector('.caixa-secundaria');
 
 function criptografarTexto(texto) {
-    let textoCriptografado = texto
+    return texto
         .replace(/e/g, "enter")
         .replace(/i/g, "imes")
         .replace(/a/g, "ai")
         .replace(/o/g, "ober")
         .replace(/u/g, "ufat");
-    return textoCriptografado;
 }
 
 function descriptografarTexto(texto) {
-    let textoDescriptografado = texto
+    return texto
         .replace(/enter/g, "e")
         .replace(/imes/g, "i")
         .replace(/ai/g, "a")
         .replace(/ober/g, "o")
         .replace(/ufat/g, "u");
-    return textoDescriptografado;
 }
 
-btnCriptografar.addEventListener('click', function() {
-    const texto = inputTexto.value;
-    if (texto) {
-        const textoCriptografado = criptografarTexto(texto);
-        imagemPrincipal.style.display = 'none';
+function atualizarCard(texto) {
+    let newTextElement = document.querySelector('.novo-texto');
 
-        textAviso.style.justifyContent = 'flex-start';
-        textAviso.style.alignItems = 'flex-start';
-        textAviso.style.textAlign = 'left';
-        textAviso.innerHTML = `<h1  style="color: rgba(73, 80, 87, 1);">${textoCriptografado}</h1>`;
+    if (!texto) {
+        card.classList.remove('caixa-secundaria2');
+        imagemPrincipal.classList.remove('imagem-principal-hide');
+        textAviso.classList.remove('text-aviso-hide');
+        btnCopiar.classList.remove('btn-copiar-visible');
+        if (newTextElement) {
+            newTextElement.remove();
+        }
+        return;
+    }
 
-        document.querySelector('.caixa-secundaria').style.alignItems = 'flex-start';
-        document.querySelector('.caixa-secundaria').style.justifyContent = 'flex-start';
-    }else {
-        textAviso.innerHTML = `<h3>Nenhuma mensagem encontrada</h3><p>Digite um texto que você deseja criptografar ou descriptografar.</p>`;
+    if (!newTextElement) {
+        newTextElement = document.createElement('p');
+        newTextElement.className = 'novo-texto';
+        card.appendChild(newTextElement);
+    }
+
+    newTextElement.innerHTML = texto;
+    card.classList.add('caixa-secundaria2');
+    imagemPrincipal.classList.add('imagem-principal-hide');
+    textAviso.classList.add('text-aviso-hide');
+    btnCopiar.classList.add('btn-copiar-visible');
+}
+
+btnCriptografar.addEventListener('click', function () {
+    const texto = inputTexto.value.trim();
+
+    if (!texto) {
+        textAviso.innerHTML = `
+            <h3>Nenhuma mensagem encontrada</h3>
+            <p>Digite um texto que você deseja criptografar ou descriptografar.</p>`;
+        return;
+    }
+
+    const textoCriptografado = criptografarTexto(texto);
+    atualizarCard(textoCriptografado);
+});
+
+btnDescriptografar.addEventListener('click', function () {
+    const paragrafo = document.querySelector('.novo-texto');
+    const texto = paragrafo ? paragrafo.innerHTML.trim() : '';
+
+    if (!texto) {
+        textAviso.innerHTML = `
+            <h3>Nenhuma mensagem encontrada</h3>
+            <p>Digite um texto que você deseja criptografar ou descriptografar.</p>`;
+        return;
+    }
+
+    const textoDescriptografado = descriptografarTexto(texto);
+    atualizarCard(textoDescriptografado);
+});
+
+btnCopiar.addEventListener('click', async () => {
+    const paragrafo = document.querySelector('.novo-texto');
+    if (paragrafo) {
+        try {
+            await navigator.clipboard.writeText(paragrafo.innerText);
+            alert('Texto copiado para a área de transferência!');
+        } catch (erro) {
+            console.error('Falha ao copiar texto: ', erro);
+        }
     }
 });
 
-btnDescriptografar.addEventListener('click', function() {
-    const texto = inputTexto.value;
-    if (texto) {
-        const textoDescriptografado = descriptografarTexto(texto);
-        imagemPrincipal.style.display = 'none';
-
-        textAviso.style.alignItems = 'flex-start';
-        textAviso.style.justifyContent = 'flex-start';
-        textAviso.style.textAlign = 'left';
-        textAviso.innerHTML = `<h1 style="color: #0A3871;">${textoDescriptografado}</h1>`;
-
-        document.querySelector('.caixa-secundaria').style.alignItems = 'flex-start';
-        document.querySelector('.caixa-secundaria').style.justifyContent = 'flex-start';
-    } else {
-        textAviso.innerHTML = `<h3>Nenhuma mensagem encontrada</h3><p>Digite um texto que você deseja criptografar ou descriptografar.</p>`;
-    }
+inputTexto.addEventListener('input', function () {
+    atualizarCard(inputTexto.value.trim());
 });
-
