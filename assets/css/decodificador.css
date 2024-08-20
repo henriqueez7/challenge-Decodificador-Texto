@@ -199,11 +199,14 @@ button {
 .rodape {
     width: 100%;
     padding: 1rem;
+    background-color: #F3F5FC;
+    text-align: center;
 }
 
 .rodape p {
     text-align: center;
     justify-content: center;
+    color: #495057;
 }
 
 .novo-texto{
@@ -217,4 +220,94 @@ button {
     width: 100%; 
     padding: 0; 
     margin: 0; 
+}
+
+
+@media (max-width: 1024px) {
+    .codificador {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .content-area {
+        padding-left: 2rem;
+        align-items: center;
+    }
+
+    .caixa-texto {
+        width: 100%;
+        height: 300px;
+        font-size: 1.2rem;
+    }
+
+    .btn-criptografar, .btn-descriptografar, .btn-copiar {
+        width: 100%;
+    }
+
+    .caixa-secundaria {
+        max-width: 100%;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-area {
+        padding-left: 1rem;
+        align-items: center;
+    }
+
+    .caixa-texto {
+        height: 250px;
+        font-size: 1rem;
+    }
+
+    .btn-criptografar, .btn-descriptografar, .btn-copiar {
+        font-size: 0.9rem;
+    }
+
+    .caixa-secundaria {
+        padding: 1rem;
+        border-radius: 20px;
+    }
+
+    .text-aviso h3 {
+        font-size: 1.2rem;
+    }
+
+    .text-aviso p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .codificador {
+        padding: 0.5rem;
+    }
+
+    .content-area {
+        padding-left: 0;
+    }
+
+    .caixa-texto {
+        height: 200px;
+        font-size: 0.9rem;
+    }
+
+    .btn-criptografar, .btn-descriptografar, .btn-copiar {
+        padding: 16px;
+        font-size: 0.8rem;
+    }
+
+    .caixa-secundaria {
+        padding: 0.5rem;
+        border-radius: 16px;
+    }
+
+    .text-aviso h3 {
+        font-size: 1rem;
+    }
+
+    .text-aviso p {
+        font-size: 0.8rem;
+    }
 }
